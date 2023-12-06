@@ -32,19 +32,26 @@ int x[2][]	invalid
 int *x[]	valid. array of pointers to integers. 
 
 # OSTEP Ch13 - Address Space
-Multiprogramming: multiple processes were ready to run, OS would switch between them.
+## Multiprogramming: multiple processes were ready to run, OS would switch between them.
 cons: timely response from currently executing tasks for concurrent users
-Time sharing: run one process for a short while, giving it full access to all memory, then stop, save state to disk, load another process’s state, run it for a while, then switch.
+## Time sharing: run one process for a short while, giving it full access to all memory, then stop, save state to disk, load another process’s state, run it for a while, then switch.
 cons: way too slow as memory grows. Restoring register level state (PC) is fast, saving content of memory to disk is slow.
 solution: leave processes in memory while switching between them
 Time sharing: protection problem. Multiple programs residing concurrently in memory makes a process able to read, write other processes' memory.
 
-Address Space (Virtualizing Memory)
+## Address Space (Virtualizing Memory)
 An abstraction of physical memory created by the OS. It is the running program’s view of memory in the system.
 The address space of a process contains all of the memory state of the running program.
-Code: instructions (static, at top)
-Stack: keep track of where the program is in the function call chain as well as to allocate local variables and pass parameters and return values to and from routines. (grows upwards, from end of code)
-Heap: dynamically-allocated, user-managed memory (grows downwards, from bottom).
+### Code: instructions (static, at top)
+### Stack: keep track of where the program is in the function call chain as well as to allocate local variables and pass parameters and return values to and from routines. (grows upwards, from end of code)
+### Heap: dynamically-allocated, user-managed memory (grows downwards, from bottom).
+
+## Goals of Virtual Memory
+### transparency: OS should implement virtual memory in a way that is invisible to the running program. The program shouldn’t be aware of the fact that memory is virtualized, it should behave as if it has its own private physical memory.
+efficiency: both in terms of time and space
+### protection: protect processes from one another as well as OS itself from processes
+When one process performs a load, a store, or an instruction fetch, it should not be able to access or affect in any way the memory contents of any other process or the OS itself.
+### Isolation: if two entities are properly isolated, this implies that one can fail without affecting the other.
 
 The running program thinks it is loaded into memory at a particular address, and has potentially very large address space. OS translates virtual address to the actual address safely.
 
