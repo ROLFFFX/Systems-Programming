@@ -52,3 +52,15 @@ This repository contains my attempts to the projects for the Systems Programming
   - `mytar -c -f a.tar a` - Create an archive from a directory.
   - `mytar -x -f a.tar` - Extract files from an archive.
 - Implementation: Handles file modes, modification times, directory structures, and hard links. Implements functionalities for creating and managing tar files, including file I/O and directory traversal.
+
+---
+
+## Copyright and Honor Code Disclaimer
+### Emory Honor Code Reminder
+This repository contains assignments submitted for the Systems Programming course at Emory University. They are provided for educational purposes and personal reference only.
+
+As a reminder to fellow students and the academic community, adhering to the Emory Honor Code is essential. This code requires that students uphold integrity and honesty in their academic endeavors. Therefore, directly copying or replicating this work for academic submissions is an act of plagiarism and a serious violation of the Emory Honor Code.
+
+### Contact Information
+For inquiries, discussions, or further information, please contact yshi373@emory.edu
+
